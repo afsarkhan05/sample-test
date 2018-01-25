@@ -22,7 +22,7 @@ public class HiveJdbc {
             System.exit(1);
         }
         //replace "hive" here with the name of the user the queries should run as
-        Connection con = DriverManager.getConnection("jdbc:hive2://172.16.149.158:10000/default", "hive", "");
+        Connection con = DriverManager.getConnection("jdbc:hive2://db_url:10000/default", "hive", "");
         Statement stmt = con.createStatement();
         String tableName = "you_hive_Table_name";
         String selectQuery = "SELECT * from "+ tableName;

@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 
 import java.util.Collections;
 import java.util.Properties;
-import java.util.Random;
 
 /**
  * Created by afsar.khan on 12/23/17.
@@ -18,20 +17,19 @@ import java.util.Random;
 public class KafkaProducerConsumer {
 
     private static final Logger LOG = Logger.getLogger(KafkaProducerConsumer.class);
-    //private static final String topicName = "feed.event.lld-processor.int";//"feed.event.lld-transformer.int"
-    //public static final String message = "{\"hdfsHost\":\"tbhortonctl1.int.iad2.xaxis.net\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"855\",\"filePath\":\"/user/Zaman-Data/ttd/impressions_2m0611k_V5_1_2017-02-11T081840_2017-02-11T082407_2017-02-11T083023_dsadsadsadasdsadasd.log\"}";
+    //public static final String message = "{\"hdfsHost\":\"hdfs_server_url\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"855\",\"filePath\":\"/user/test-Data/ttd/impressions_2m0611k_V5_1_2017-02-11T081840_2017-02-11T082407_2017-02-11T083023_dsadsadsadasdsadasd.log\"}";
 
 
-    private static final String producerTopicName = "feed.event.lld-processor.int";//"feed.event.lld-transformer.int"
-    private static final String consumerTopicName = "feed.event.lld-transformer.int";
-    public static final String message = "{\"hdfsHost\":\"tbhortonctl1.int.iad2.xaxis.net\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"855\",\"filePath\":\"/user/Zaman-Data/ttd/impressions_2m0611k_V5_1_2017-02-11T081840_2017-02-11T082407_2017-02-11T083023_dsadsadsadasdsadasd.log\"}";
-    //public static final String message = "{\"hdfsHost\":\"tbhortonctl1.int.iad2.xaxis.net\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"869\",\"filePath\":\"/user/Zaman-Data/dfa/dcm_account6538_impression_2017091215_20170912_211732_609023593.csv\"}";
+    private static final String producerTopicName = "producer_topic";
+    private static final String consumerTopicName = "consumer_topic";
+    public static final String message = "{\"hdfsHost\":\"hdfs_location\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"855\",\"filePath\":\"/user/Test-Data/ttd/impressions_2m0611k_V5_1_2017-02-11T081840_2017-02-11T082407_2017-02-11T083023_dsadsadsadasdsadasd.log\"}";
+    //public static final String message = "{\"hdfsHost\":\"hdfs_server_url\",\"hdfsPort\":\"8020\",\"providerId\":\"4\",\"dataSourceId\":\"869\",\"filePath\":\"/user/test-Data/dfa/dcm_account6538_impression_2017091215_20170912_211732_609023593.csv\"}";
 
-    private static final String messageToCheck="Zaman-Data";
+    private static final String messageToCheck="test-Data";
     private static final int totalMessagesSent = 10;
 
-    private static final String BOOT_STRAP_SERVERS = "tbkafka1.int.iad2.xaxis.net:9092";
-    private static final String ZOO_KEEPER_CONNECT = "tbkafka1.int.iad2.xaxis.net:2181";
+    private static final String BOOT_STRAP_SERVERS = "tbkafka1.server.net:9092";
+    private static final String ZOO_KEEPER_CONNECT = "tbkafka1.server.net:2181";
 
     private static final String SERIALIZER_CLASS = "kafka.serializer.StringEncoder";
     private static final String ACKS = "1";
