@@ -8,6 +8,9 @@
     <artifactId>sample-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <hadoop.version>2.6.0</hadoop.version>
+    </properties>
 
     <dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka producer-->
@@ -30,6 +33,30 @@
         <artifactId>hive-jdbc</artifactId>
         <version>2.3.2</version>
     </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${hadoop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jersey-server</artifactId>
+                    <groupId>com.sun.jersey</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jersey-core</artifactId>
+                    <groupId>com.sun.jersey</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
     </dependencies>
 </project>
